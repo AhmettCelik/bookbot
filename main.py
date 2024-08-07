@@ -3,7 +3,8 @@ def main():
     book = get_book(book_path)
     word_count = count_of_words(book)
     chars_dict = get_chars_count(book)
-    print(chars_dict)
+    sorted_chars = sorted_dict(chars_dict)
+    print(sorted_chars)
 
 def get_book(path):
     with open(path) as file:
@@ -21,5 +22,15 @@ def get_chars_count(text):
         else:
             chars_and_counts[char] = 1
     return chars_and_counts
+
+def sort_on(dict):
+    return dict["number"]
+
+def sorted_dict(chars_dict):
+    sorted_list = []
+    for char in chars_dict:
+        sorted_list.append({"char": char, "number": chars_dict[char]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
 
 main()
