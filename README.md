@@ -1,3 +1,2 @@
 # bookbot
-BookBot is my first python project! (actually not)
-I will fix this project in the future.
+BookBot can give you unnecessary information such as the number of words and the number of times each character appears in the given text.
