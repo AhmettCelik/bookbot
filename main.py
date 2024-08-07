@@ -4,7 +4,7 @@ def main():
     word_count = count_of_words(book)
     chars_dict = get_chars_count(book)
     sorted_chars = sorted_dict(chars_dict)
-    print(sorted_chars)
+    print_on_console(book_path, book, word_count, chars_dict, sorted_chars)
 
 def get_book(path):
     with open(path) as file:
@@ -32,5 +32,17 @@ def sorted_dict(chars_dict):
         sorted_list.append({"char": char, "number": chars_dict[char]})
     sorted_list.sort(reverse=True, key=sort_on)
     return sorted_list
+
+def print_on_console(path, text, num_words, dict, sorted_list):
+    print(f"--- Begin report of {path} ---")
+    print(f"{num_words} words found in the document")
+    print()
+
+    for element in sorted_list:
+        if element["char"].isalpha():
+            print(f"The '{element['char']}' character was found {element['number']} times")
+    print()
+
+    print("--- End Report ---")
 
 main()
